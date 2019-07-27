@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "import": "node scripts/import.js",
+    "import-and-start": "node scripts/import.js && node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
