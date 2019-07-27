@@ -6,7 +6,7 @@ https://github.com/scryfall/servo
 
 ## Data Import
 
-The cards data _must_ be imported by running `node run import`. It will pull the the entire cards data set from [ThronesDB's][https://thronesdb.com] public API, transform it, and save it to the `/data` directory as file.
+The cards data _must_ be imported by running `npm run import`. It will pull the the entire cards data set from [ThronesDB's](https://thronesdb.com) public API, transform it, and save it to the `/data` directory as file.
 
 See this [article](https://devcenter.heroku.com/articles/scheduler) on how to reimport the data as a scheduled job.
 
