@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const https = require('https');
 
-const exportFile = path.join(__dirname, '../data/cardList.txt');
+const exportFile = path.join(__dirname, '../data/cardList.json');
 
 const cardTextReplacement = [
   // House placeholders
