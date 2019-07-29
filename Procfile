@@ -1,1 +1,2 @@
-worker: node index.js
+worker: npm run import-and-start
+
