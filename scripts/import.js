@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const https = require('https');
+const { makeKeyFromSetCode, makeKeyFromName } = require(__dirname + "/../lib/card-utils.js");
 
 const exportFile = path.join(__dirname, '../data/cardList.json');
 
@@ -59,7 +60,12 @@ https.get('https://thronesdb.com/api/public/cards/', (res) => {
     } catch (e) {
       console.error(e.message);
     }
+    const index = {
+      cardsBySet: {},
+      cardsByName: {}
+    }
     cards.forEach(card => {
+      // massage card texts.
       if (card.text) {
         cardTextReplacement.forEach(searchReplace => {
           card.text = card.text.replace(searchReplace[0], searchReplace[1]);
@@ -70,8 +76,20 @@ https.get('https://thronesdb.com/api/public/cards/', (res) => {
           card.flavor = card.flavor.replace(searchReplace[0], searchReplace[1]);
         });
       }
+      // index cards by set
+      const setCodeKey = makeKeyFromSetCode(card.pack_code);
+      if (! index.cardsBySet.hasOwnProperty(setCodeKey)) {
+        index.cardsBySet[setCodeKey] = [];
+      }
+      index.cardsBySet[setCodeKey].push(card);
+      // index cards by name
+      const nameKey = makeKeyFromName(card.name);
+      if (! index.cardsByName.hasOwnProperty(nameKey)) {
+        index.cardsByName[nameKey] = [];
+      }
+      index.cardsByName[nameKey].push(card);
     });
-    fs.writeFile(exportFile, JSON.stringify(cards), 'utf8', (e) => {
+    fs.writeFile(exportFile, JSON.stringify(index), 'utf8', (e) => {
       if (e) throw e;
     });
   });
