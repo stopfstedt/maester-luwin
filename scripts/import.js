@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const https = require('https');
-const { makeKeyFromPackCode, makeKeyFromName } = require(__dirname + "/../lib/card-utils.js");
+const { makeKeyFromPackCode, makeKeyFromName } = require("./../lib/card-utils.js");
 
 const exportFile = path.join(__dirname, '../data/cardList.json');
 
