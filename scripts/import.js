@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const https = require('https');
 const { makeKeyFromPackCode, makeKeyFromName } = require("./../lib/card-utils.js");
+const { sortCardCodes } = require("./../lib/import-utils.js");
 
 const exportFile = path.join(__dirname, '../data/cards.json');
 
@@ -25,7 +26,7 @@ const cardTextReplacement = [
   [/<i>/g, "_"],
   [/<\/i>/g, "_"],
   // Line Breaks to double line breaks, otherwise markdown will just eat the break.
-  [/\n/g, "\n\n"]
+  [/\\\n/g, "\n\n"]
 ];
 
 const cardFlavorTextReplacement = [
@@ -102,6 +103,12 @@ https.get('https://thronesdb.com/api/public/cards/', (res) => {
       }
       data.indices.names[nameKey].push(card.code);
     });
+
+    // make another pass over the names index, and sort the card codes for each title entry.
+    const names = Object.keys(data.indices.names);
+    names.forEach(name => {
+      data.indices.names[name].sort(sortCardCodes);
+    })
     fs.writeFile(exportFile, JSON.stringify(data), 'utf8', (e) => {
       if (e) throw e;
     });
