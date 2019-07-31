@@ -3,7 +3,7 @@ const path = require('path');
 const https = require('https');
 const { makeKeyFromPackCode, makeKeyFromName } = require("./../lib/card-utils.js");
 
-const exportFile = path.join(__dirname, '../data/cardList.json');
+const exportFile = path.join(__dirname, '../data/cards.json');
 
 const cardTextReplacement = [
   // House placeholders
