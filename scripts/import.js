@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const https = require('https');
-const { makeKeyFromSetCode, makeKeyFromName } = require(__dirname + "/../lib/card-utils.js");
+const { makeKeyFromPackCode, makeKeyFromName } = require(__dirname + "/../lib/card-utils.js");
 
 const exportFile = path.join(__dirname, '../data/cardList.json');
 
@@ -85,7 +85,7 @@ https.get('https://thronesdb.com/api/public/cards/', (res) => {
       // store card by code.
       data.cards[card.code] = card;
 
-      const packKey = makeKeyFromSetCode(card.pack_code);
+      const packKey = makeKeyFromPackCode(card.pack_code);
       const nameKey = makeKeyFromName(card.name);
 
       // index cards by pack
