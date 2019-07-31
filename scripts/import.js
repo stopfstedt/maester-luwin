@@ -23,7 +23,9 @@ const cardTextReplacement = [
   [/<b>/g, "**"],
   [/<\/b>/g, "**"],
   [/<i>/g, "_"],
-  [/<\/i>/g, "_"]
+  [/<\/i>/g, "_"],
+  // Line Breaks to double line breaks, otherwise markdown will just eat the break.
+  [/\n/g, "\n\n"]
 ];
 
 const cardFlavorTextReplacement = [
