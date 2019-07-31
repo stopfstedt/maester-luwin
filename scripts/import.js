@@ -92,7 +92,7 @@ https.get('https://thronesdb.com/api/public/cards/', (res) => {
       if (! data.indices.packs.hasOwnProperty(packKey)) {
         data.indices.packs[packKey] = {};
       }
-      data.indices.packs[packKey][nameKey] = card.code;
+      data.indices.packs[packKey][nameKey] = [ card.code ];
 
       // index cards by name
       if (! data.indices.names.hasOwnProperty(nameKey)) {
