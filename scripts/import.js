@@ -32,7 +32,7 @@ const cardFlavorTextReplacement = [
 ];
 
 https.get('https://thronesdb.com/api/public/cards/', (res) => {
-  
+
   const { statusCode } = res;
   const contentType = res.headers['content-type'];
 
@@ -48,7 +48,7 @@ https.get('https://thronesdb.com/api/public/cards/', (res) => {
     console.error(error.message);
     res.resume();
     return;
-  }  
+  }
 
   res.setEncoding('utf8');
   let rawData = '';
@@ -60,12 +60,18 @@ https.get('https://thronesdb.com/api/public/cards/', (res) => {
     } catch (e) {
       console.error(e.message);
     }
-    const index = {
-      cardsBySet: {},
-      cardsByName: {}
+
+    // output data structure
+    const data = {
+      cards: {},
+      indices: {
+        packs: {},
+        names: {}
+      },
     }
+
     cards.forEach(card => {
-      // massage card texts.
+      // massage card text and flavor-text.
       if (card.text) {
         cardTextReplacement.forEach(searchReplace => {
           card.text = card.text.replace(searchReplace[0], searchReplace[1]);
@@ -76,20 +82,25 @@ https.get('https://thronesdb.com/api/public/cards/', (res) => {
           card.flavor = card.flavor.replace(searchReplace[0], searchReplace[1]);
         });
       }
-      // index cards by set
-      const setCodeKey = makeKeyFromSetCode(card.pack_code);
-      if (! index.cardsBySet.hasOwnProperty(setCodeKey)) {
-        index.cardsBySet[setCodeKey] = [];
-      }
-      index.cardsBySet[setCodeKey].push(card);
-      // index cards by name
+      // store card by code.
+      data.cards[card.code] = card;
+
+      const packKey = makeKeyFromSetCode(card.pack_code);
       const nameKey = makeKeyFromName(card.name);
-      if (! index.cardsByName.hasOwnProperty(nameKey)) {
-        index.cardsByName[nameKey] = [];
+
+      // index cards by pack
+      if (! data.indices.packs.hasOwnProperty(packKey)) {
+        data.indices.packs[packKey] = {};
       }
-      index.cardsByName[nameKey].push(card);
+      data.indices.packs[packKey][nameKey] = card.code;
+
+      // index cards by name
+      if (! data.indices.names.hasOwnProperty(nameKey)) {
+        data.indices.names[nameKey] = [];
+      }
+      data.indices.names[nameKey].push(card.code);
     });
-    fs.writeFile(exportFile, JSON.stringify(index), 'utf8', (e) => {
+    fs.writeFile(exportFile, JSON.stringify(data), 'utf8', (e) => {
       if (e) throw e;
     });
   });
