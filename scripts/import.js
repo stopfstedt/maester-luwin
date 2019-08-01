@@ -7,19 +7,6 @@ const { sortCardCodes } = require("./../lib/import-utils.js");
 const exportFile = path.join(__dirname, '../data/cards.json');
 
 const cardTextReplacement = [
-  // House placeholders
-  [/\[baratheon\]/g, "_Baratheon_"],
-  [/\[greyjoy\]/g, "_Greyjoy_"],
-  [/\[martell\]/g, "_Martell_"],
-  [/\[tyrell\]/g, "_Tyrell_"],
-  [/\[targaryen\]/g, "_Targaryen_"],
-  [/\[thenightswatch\]/g, "_The Night's Watch_"],
-  [/\[stark\]/g, "_Stark_"],
-  [/\[lannister\]/g, "_Lannister_"],
-  // Challenge Type placeholders
-  [/\[military\]/g, "_Military_"],
-  [/\[intrigue\]/g, "_Intrigue_"],
-  [/\[power\]/g, "_Power_"],
   // Markup to Markdown
   [/<b>/g, "**"],
   [/<\/b>/g, "**"],
