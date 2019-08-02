@@ -12,6 +12,8 @@ const cardTextReplacement = [
   [/<\/b>/g, "**"],
   [/<i>/g, "***"],
   [/<\/i>/g, "***"],
+  [/<em>/g, "_"],
+  [/<\/em>/g, "_"],
   // Line Breaks to double line breaks, otherwise markdown will just eat the break.
   [/\n/g, '\n\n']
 ];
