@@ -1,6 +1,6 @@
 # Maester Luwin
 
-Maester Luwin is a Discord bot that will post the Oracle text or image of a _Game of Thrones: LCG_ card to your text channels when a card name is referenced. The Maester Luwin bot is a modified version of the excellent bot Servo found at 
+Maester Luwin is a Discord bot that will post the Oracle text or image of a _Game of Thrones: LCG_ card to your text channels when a card name is referenced. The Maester Luwin bot is a modified version of the excellent bot Servo found at
 https://github.com/scryfall/servo
 
 
@@ -30,3 +30,24 @@ _example usuage to be added_
 Work in progress: Maester Luwin will also handle misspellings and partial card names, as long as there is a clear match:
 
 _example of misspelling to be added here_
+
+
+## Iconography
+
+To print House- and Challenge-icons, you must install the images found in the `emojis` directory to your server as custom emojis:
+
+| Emoji Name | File Location |
+| --- | --- |
+| `:baratheon:` | `emojis/baratheon.png` |
+| `:greyjoy:` | `emojis/greyjoy.png` |
+| `:lannister:` | `emojis/lannister.png` |
+| `:martell:` | `emojis/martell.png` |
+| `:neutral:` | `emojis/neutral.png` |
+| `:stark:` | `emojis/stark.png` |
+| `:targaryen:` | `emojis/targaryen.png` |
+| `:thenightswatch:` | `emojis/thenightswatch.png` |
+| `:tyrell:` | `emojis/tyrell.png` |
+| `:military:` | `emojis/military.png` |
+| `:intrigue:` | `emojis/intrigue.png` |
+| `:power:` | `emojis/power.png` |
+| `:unique:` | `emojis/unique.png` |
