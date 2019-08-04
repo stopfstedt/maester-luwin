@@ -38,16 +38,16 @@ To print House- and Challenge-icons, you must install the images found in the `e
 
 | Emoji Name | File Location |
 | --- | --- |
-| `:baratheon:` | `emojis/baratheon.png` |
-| `:greyjoy:` | `emojis/greyjoy.png` |
-| `:lannister:` | `emojis/lannister.png` |
-| `:martell:` | `emojis/martell.png` |
-| `:neutral:` | `emojis/neutral.png` |
-| `:stark:` | `emojis/stark.png` |
-| `:targaryen:` | `emojis/targaryen.png` |
-| `:thenightswatch:` | `emojis/thenightswatch.png` |
-| `:tyrell:` | `emojis/tyrell.png` |
-| `:military:` | `emojis/military.png` |
-| `:intrigue:` | `emojis/intrigue.png` |
-| `:power:` | `emojis/power.png` |
-| `:unique:` | `emojis/unique.png` |
+| `:mlbaratheon:` | `emojis/baratheon.png` |
+| `:mlgreyjoy:` | `emojis/greyjoy.png` |
+| `:mllannister:` | `emojis/lannister.png` |
+| `:mlmartell:` | `emojis/martell.png` |
+| `:mlneutral:` | `emojis/neutral.png` |
+| `:mlstark:` | `emojis/stark.png` |
+| `:mltargaryen:` | `emojis/targaryen.png` |
+| `:mlthenightswatch:` | `emojis/thenightswatch.png` |
+| `:mltyrell:` | `emojis/tyrell.png` |
+| `:mlmilitary:` | `emojis/military.png` |
+| `:mlintrigue:` | `emojis/intrigue.png` |
+| `:mlpower:` | `emojis/power.png` |
+| `:mlunique:` | `emojis/unique.png` |
