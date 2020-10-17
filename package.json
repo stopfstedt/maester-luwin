@@ -1,7 +1,7 @@
 {
-  "name": "servo",
-  "version": "0.1.0",
-  "description": "A Discord bot that can return Magic card information and pictures.",
+  "name": "maester-luwin",
+  "version": "1.0.0",
+  "description": "A Discord bot that can return AGoT 2nd Ed LCG card information and pictures.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -9,20 +9,29 @@
     "import-and-start": "node scripts/import.js && node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "engines": {
+    "node": "14.x",
+    "npm": "6.x"
+  },
+  "keywords": [
+    "application",
+    "bot",
+    "discord"
+  ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/scryfall/servo.git"
+    "url": "https://github.com/DrThyme/maester-luwin"
   },
-  "author": "Scryfall <https://scryfall.com>",
+  "author": "DrThyme",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/scryfall/servo/issues"
+    "url": "https://github.com/DrThyme/maester-luwin/issues"
   },
-  "homepage": "https://github.com/scryfall/servo#readme",
+  "homepage": "https://github.com/DrThyme/maester-luwin#readme",
   "dependencies": {
-    "discord.js": "^11.0.0",
-    "request": "^2.79.0",
-    "request-promise-native": "^1.0.3",
-    "urijs": "^1.18.4"
+    "discord.js": "^12.3.1",
+    "request": "^2.88.2",
+    "request-promise-native": "^1.0.9",
+    "urijs": "^1.19.2"
   }
 }
