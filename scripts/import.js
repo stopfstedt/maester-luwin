@@ -23,7 +23,7 @@ const cardFlavorTextReplacement = [
   [/<\/cite>/g, ""]
 ];
 
-https.get('https://thronesdb.com/api/public/cards/', (res) => {
+https.get('https://redesigns.thronesdb.com/api/public/cards/', (res) => {
 
   const { statusCode } = res;
   const contentType = res.headers['content-type'];
@@ -73,6 +73,12 @@ https.get('https://thronesdb.com/api/public/cards/', (res) => {
         cardFlavorTextReplacement.forEach(searchReplace => {
           card.flavor = card.flavor.replace(searchReplace[0], searchReplace[1]);
         });
+      }
+      if (! ['FH', 'R'].includes(card.pack_code)) {
+        card.url = card.url.replace('redesigns.', '');
+        if (card.image_url) {
+          card.image_url = card.image_url.replace('redesigns.', '');
+        }
       }
       // store card by code.
       data.cards[card.code] = card;
