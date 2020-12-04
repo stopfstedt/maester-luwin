@@ -74,7 +74,7 @@ https.get('https://redesigns.thronesdb.com/api/public/cards/', (res) => {
           card.flavor = card.flavor.replace(searchReplace[0], searchReplace[1]);
         });
       }
-      if (! ['FH', 'R'].includes(card.pack_code)) {
+      if (! ['FH', 'R', 'JS'].includes(card.pack_code)) {
         card.url = card.url.replace('redesigns.', '');
         if (card.image_url) {
           card.image_url = card.image_url.replace('redesigns.', '');
